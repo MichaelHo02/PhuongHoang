@@ -1,0 +1,50 @@
+###
+# @name Get product
+GET http://localhost:8080/products/1
+
+###
+# @name Create product
+POST http://localhost:8080/products
+Content-Type: application/json
+
+
+
+###
+# @name Update product 2
+PUT http://localhost:8080/products/2
+Content-Type: application/json
+
+{
+  "name": "Product 2",
+  "description": "Description of Product 2 Updated",
+  "categories": [
+    "cat1",
+    "cat2"
+  ]
+}
+
+###
+# @name Delete product
+DELETE http://localhost:8080/products/1
+
+###
+# @name http://localhost:8080/products/search
+#POST http://localhost:8080/products/search
+#Content-Type: application/json
+#
+#{
+#  "dataOption": "any",
+#  "searchCriteria": [
+#    {
+#      "filterKey": "categories",
+#      "operation": "cn",
+#      "value": "vietnam"
+#    }
+#  ],
+#  "sortCriteria": [
+#    {
+#      "filterKey": "code",
+#      "sortOption": "asc"
+#    }
+#  ]
+#}

@@ -1,0 +1,22 @@
+###
+# @name Create order
+POST localhost:8080/orders
+Content-Type: application/json
+
+{
+  "clientName": "Michael",
+  "dateOfOrder": "2023-12-01",
+  "dateOfDelivery": "2023-12-30",
+  "builtProducts": [
+    {
+      "productCode": 1,
+      "qty": 1
+    },
+    {
+      "productCode": 2,
+      "qty": 4
+    }
+  ],
+  "dateOfStart": "2023-12-28",
+  "dateOfExpectedCompletion": "2023-12-29"
+}

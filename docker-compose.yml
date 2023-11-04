@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  db-order-service:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=order_service
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=order_db
+  db-product-service:
+    image: postgres
+    ports:
+      - "5433:5432"
+    restart: always
+    environment:
+      - POSTGRES_USER=product_service
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=product_db
