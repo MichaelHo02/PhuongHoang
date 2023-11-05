@@ -1,0 +1,40 @@
+### Create product
+POST localhost:8081/products
+Content-Type: application/json
+
+{
+  "name": "Table",
+  "description": "A normal table",
+  "categories": [
+    "kitchen",
+    "wood"
+  ],
+  "billOfMaterials": [
+    {
+      "materials": [
+        {
+          "productName": "table leg",
+          "productDescription": "wood table leg",
+          "productCategories": [
+            "kitchen",
+            "wood",
+            "component"
+          ],
+          "qty": 4,
+          "cost": 2
+        },
+        {
+          "productName": "table sheet",
+          "productDescription": "wood table sheet",
+          "productCategories": [
+            "kitchen",
+            "wood",
+            "component"
+          ],
+          "qty": 1,
+          "cost": 4
+        }
+      ]
+    }
+  ]
+}

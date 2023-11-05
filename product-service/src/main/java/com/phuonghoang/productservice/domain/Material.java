@@ -1,4 +1,4 @@
-package com.phuonghoang.productservice.domain.entity;
+package com.phuonghoang.productservice.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,13 +14,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Material {
     @Id
+    @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "bill_id")
     private BillOfMaterial billOfMaterial;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     private Product product;
 

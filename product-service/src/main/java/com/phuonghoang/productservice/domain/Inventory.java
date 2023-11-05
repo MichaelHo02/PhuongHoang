@@ -1,4 +1,4 @@
-package com.phuonghoang.productservice.domain.entity;
+package com.phuonghoang.productservice.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,11 +17,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class Inventory {
     @Id
-    @Column(columnDefinition = "TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    private Date currentTime;
+    private Date timeId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_code")
     private Product product;
 

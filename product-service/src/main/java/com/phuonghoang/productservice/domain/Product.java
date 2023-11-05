@@ -1,4 +1,4 @@
-package com.phuonghoang.productservice.domain.entity;
+package com.phuonghoang.productservice.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,13 +18,12 @@ import java.util.Set;
 @NoArgsConstructor
 public class Product {
     @Id
+    @GeneratedValue
     private Long code;
 
     private String name;
 
     private String description;
-
-    private Long unitCost;
 
     @ElementCollection(targetClass = String.class, fetch = FetchType.LAZY)
     @CollectionTable(name = "categories", joinColumns = @JoinColumn(name = "product_id"))
@@ -32,8 +31,5 @@ public class Product {
     private Set<String> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<BillOfMaterial> billOfMaterials;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<Inventory> inventories;
+    private List<BillOfMaterial> billOfMaterials;
 }

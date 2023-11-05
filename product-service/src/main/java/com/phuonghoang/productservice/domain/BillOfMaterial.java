@@ -1,4 +1,4 @@
-package com.phuonghoang.productservice.domain.entity;
+package com.phuonghoang.productservice.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table
@@ -16,12 +16,13 @@ import java.util.Set;
 @NoArgsConstructor
 public class BillOfMaterial {
     @Id
+    @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "product_code")
     private Product product;
 
-    @OneToMany(mappedBy = "billOfMaterial")
-    private Set<Material> materials;
+    @OneToMany(mappedBy = "billOfMaterial", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Material> materials;
 }
